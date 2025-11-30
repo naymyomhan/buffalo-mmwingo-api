@@ -62,11 +62,11 @@ class AppTwoPushNotification extends Model implements HasMedia
             }
 
             if ($image) {
-                $body['big_picture'] = $image;
+                $body['big_picture'] = $image ?? null;
             }
 
             Http::withHeaders([
-                'Authorization' => 'os_v2_app_dlzmerl7l5c4valtqksjh2iiavvyonwkydbuveeuzksprqyw3hamnr37ot7uebdkxgtvjrynxjfxcq76naej4sqviq4vd5wgbmewszi',
+                'Authorization' => 'os_v2_app_dlzmerl7l5c4valtqksjh2iiavhafyouqviucqeamppvob2r2gc36xe5kmynstnpfcz3x7dlf3sdlxfhh3w4xchoxzrprlyvcxurv4y',
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ])->post('https://api.onesignal.com/notifications?c=push', $body);

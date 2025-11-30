@@ -48,7 +48,7 @@ class AppTwoPushNotification extends Model implements HasMedia
             $image = $notification->getFirstMediaUrl('notifications', 'thumb');
 
             $body = [
-                "app_id" => "1af2c245-7f5f-45ca-8173-82a493e90805",
+                "app_id" => env('ONESIGNAL_APP_ID'),
                 'contents' => [
                     'en' => $notification->message,
                 ],
@@ -66,7 +66,7 @@ class AppTwoPushNotification extends Model implements HasMedia
             }
 
             Http::withHeaders([
-                'Authorization' => 'os_v2_app_dlzmerl7l5c4valtqksjh2iiavhafyouqviucqeamppvob2r2gc36xe5kmynstnpfcz3x7dlf3sdlxfhh3w4xchoxzrprlyvcxurv4y',
+                'Authorization' => env('ONESIGNAL_REST_API_KEY'),
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ])->post('https://api.onesignal.com/notifications?c=push', $body);
